@@ -28,9 +28,12 @@ gem 'rails', '3.0.1'
 #   gem 'webrat'
 # end
 gem "mongoid", ">= 2.0.0.beta.19"
+gem "bson_ext"
 gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 gem "cucumber-rails", :group => :test
+gem "launchy", :group => :test
 gem "capybara", :group => :test
+gem 'fabrication', :group => :test
 gem "devise"
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
