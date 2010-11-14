@@ -1,0 +1,15 @@
+%fieldset
+  =form_for @issue do |f| 
+    %ul
+      %li
+        %label Title 
+        =f.text_field :title
+      %li
+        %label Description
+        = f.text_area :description
+      %li
+        %label Author
+        =f.text_field :author
+    %p.actions
+      = submit_tag "Add Issue"
+      = link_to "Cancel & Go Back", :back

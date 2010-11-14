@@ -1,0 +1,24 @@
+%h2 Issues
+- unless @issues.blank?
+
+  %table.issues
+    %tr
+      %th Title
+      %th Description
+      %th Author
+      %th Priority Number
+
+    -@issues.each do |issue|
+      %tr
+        %td= link_to "#{issue.title}", issue_path(issue) 
+        %td= issue.description
+        %td= issue.author
+        %td= issue.priority_number       
+        
+-else
+  %h3 No Issues
+
+#add_issues
+  =link_to "Add Issue", new_issue_path
+
+     
