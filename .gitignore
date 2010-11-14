@@ -8,8 +8,6 @@ db/schema.rb
 /log/*.pid
 /coverage/*
 public/system/*
-public/stylesheets/*.css
-public/stylesheets/**/*
 .idea/*
 tmp/*
 tmp/metric_fu/*
