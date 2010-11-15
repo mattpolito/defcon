@@ -1,15 +1,25 @@
 require 'spec_helper'
 
 describe Issue do
-  # it {should be_embedded_in :user}
+  let(:valid_attributes) do
+    {
+      :title => 'title',
+      :description => 'description'
+    }
+  end
 
-  describe "#create" do
-    before do
-      @issue = Issue.create(:title => "Sample Title", :description => "Short description") 
+  describe 'instantiating a new object with valid attributes' do
+    subject { Issue.new(valid_attributes) }
+
+    it 'creates a new instance' do
+      subject.should be_valid
     end
-  
-    it "should create a new instance given valid attributes" do
-      @issue.should be_valid
-    end
-  end 
+  end
+
+  describe 'instantiating a new object with no attributes' do
+    subject { Issue.new }
+
+    it { should have(1).error_on(:title) }
+    it { should have(1).error_on(:description) }
+  end
 end

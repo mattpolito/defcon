@@ -5,4 +5,6 @@ class Issue
   field :author
   field :priority_number
 
+  validates :title, :presence => true
+  validates :description, :presence => true
 end
