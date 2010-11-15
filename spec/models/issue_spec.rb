@@ -5,8 +5,7 @@ describe Issue do
 
   describe "#create" do
     before do
-      @user = Fabricate(:user)
-      @issue = @user.issues.create(:title => "Sample Title", :description => "Short description") 
+      @issue = Issue.create(:title => "Sample Title", :description => "Short description") 
     end
   
     it "should create a new instance given valid attributes" do

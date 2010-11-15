@@ -8,5 +8,5 @@ Feature:
    And I fill in the following:
      | Title          | Redo styling and page design                              |
      | Description    | Re-Design layout and issues page along with better styles |
-   And I press "Create"
-   Then I should see "Successfully Added a New Issue."
+   And I press "Add Issue"
+   Then I should see "You have successfully added a new Issue!"
