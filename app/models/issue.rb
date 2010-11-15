@@ -5,5 +5,4 @@ class Issue
   field :author
   field :priority_number
 
-  embedded_in :user, :inverse_of => :issues
 end

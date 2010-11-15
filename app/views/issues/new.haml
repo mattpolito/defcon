@@ -2,13 +2,13 @@
   =form_for @issue do |f| 
     %ul
       %li
-        %label Title 
+        =f.label :title 
         =f.text_field :title
       %li
-        %label Description
+        =f.label :description 
         = f.text_area :description
       %li
-        %label Author
+        =f.label :author 
         =f.text_field :author
     %p.actions
       = submit_tag "Add Issue"

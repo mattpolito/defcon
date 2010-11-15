@@ -2,15 +2,15 @@ class IssuesController < ApplicationController
   
 
   def index
-    @issues = current_user.issues
+    @issues = Issue.all
   end
 
   def new
-    @issue = current_user.issues.new
+    @issue = Issue.new
   end
 
   def create
-    @issue = current_user.issues.create!(params[:issue])
+    @issue = Issue.create!(params[:issue])
     if @issue.save
       flash[:notice] = "You have successfully added a new Issue!"
       redirect_to issues_path
