@@ -20,5 +20,6 @@ group :test do
   gem 'launchy'
   gem 'capybara'
   gem 'fabrication'
+  gem 'mongoid-rspec'
 end
 
