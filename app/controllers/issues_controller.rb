@@ -1,6 +1,5 @@
 class IssuesController < ApplicationController
   
-
   def index
     @issues = Issue.all
   end
@@ -17,5 +16,9 @@ class IssuesController < ApplicationController
     else
       render :action => 'new'
     end    
+  end
+
+  def prioritize
+    raise params.inspect
   end
 end

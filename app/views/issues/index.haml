@@ -1,19 +1,20 @@
 %h2 Issues
 - unless @issues.blank?
-
-  .issues
+  #issue_index
     %ul
       %li 
         %span Title
         %span Description
         %span Author
 
-      %ul#sortable
+      %ul#sortable_issues
         -@issues.each do |issue|
-          %li
-            %span= link_to "#{issue.title}", issue_path(issue) 
-            %span= issue.description
-            %span= issue.author   
+          %li.issues
+            %p= link_to "#{issue.title}", issue_path(issue) 
+            %p= issue.description
+            %p= issue.author
+          %li.issues_id
+            %span(class="issue_id-#{issue.id}")
 -else
   %h3 No Issues
 

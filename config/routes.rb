@@ -1,9 +1,12 @@
 Defcon::Application.routes.draw do
   devise_for :users
 
-  resources :issues
+  resources :issues do
+    post 'prioritize', :on => :collection
+  end
 
   root :to => "issues#index"  
+
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
