@@ -20,6 +20,10 @@ describe Issue do
     it 'creates a new instance' do
       subject.should be_valid
     end
+
+    it 'updates status to unassigned by default' do
+      subject.status.should == "unassigned"
+    end
   end
 
   describe 'instantiating a new object with no attributes' do
