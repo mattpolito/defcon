@@ -1,20 +1,19 @@
 %h2 Issues
 - unless @issues.blank?
 
-  %table.issues
-    %tr
-      %th Title
-      %th Description
-      %th Author
-      %th Priority Number
+  .issues
+    %ul
+      %li 
+        %span Title
+        %span Description
+        %span Author
 
-    -@issues.each do |issue|
-      %tr
-        %td= link_to "#{issue.title}", issue_path(issue) 
-        %td= issue.description
-        %td= issue.author
-        %td= issue.priority_number       
-        
+      %ul#sortable
+        -@issues.each do |issue|
+          %li
+            %span= link_to "#{issue.title}", issue_path(issue) 
+            %span= issue.description
+            %span= issue.author   
 -else
   %h3 No Issues
 
