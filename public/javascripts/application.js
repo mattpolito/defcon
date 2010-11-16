@@ -9,13 +9,12 @@ $(function(){
       var issues = $(this).parents("#sortable_issues");
     
       $.each(issues.children(), function(index, value){
-        console.log($(value).value())
+        console.log($(value).find(".issues_id").children("span").attr("class"));
         issue_id.push($(value).find(".issues_id").children("span").attr("class").split("-")[1])
       });
 
       var data = {issue_ids : issue_id}
 
-      console.log(issue_id)
       $.ajax({
             url:  "/issues/prioritize",
             data: data,
