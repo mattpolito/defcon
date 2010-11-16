@@ -9,9 +9,9 @@ class IssuesController < ApplicationController
   end
 
   def create
-    @issue = Issue.create!(params[:issue])
+    @issue = Issue.new(params[:issue])
     if @issue.save
-      flash[:notice] = "You have successfully added a new Issue!"
+      flash[:success] = "You have successfully added a new Issue!"
       redirect_to issues_path
     else
       render :action => 'new'
