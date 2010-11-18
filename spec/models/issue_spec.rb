@@ -72,19 +72,24 @@ describe Issue do
   end
 
   describe '#prioritize' do
-    @issue_ids = []
-    3.times do
-      @issue_ids << Issue.create(:title => 'title', :description => 'description').id
-    end
+    let(:issues) {
+      [
+        Issue.create(valid_attributes),
+        Issue.create(valid_attributes),
+        Issue.create(valid_attributes)
+        # mock_model(Issue, priority_number => 1),
+        # mock_model(Issue, priority_number => 2),
+        # mock_model(Issue, priority_number => 3)
+      ]
+    }
+    
+    let(:issue_ids) { issues.collect(&:id) }
     
     it 're-prioritizes collection of issues based on the order given' do
-      @issue = Issue.find(@issue_ids.first)
-      @original_issue_priority_number = @issue.priority_number
-
-      @reversed_ids = @issues_ids.reverse
-      Issue.prioritize(@reversed_ids)
-      @issue.priority_number.should be_less_than @original_issue_priority_number
-      
+      issue = issues.first
+      reversed_ids = issue_ids.reverse
+      Issue.prioritize(reversed_ids)
+      issue.reload.priority_number.should == 3
     end
   end
 end

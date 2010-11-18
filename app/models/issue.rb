@@ -22,11 +22,9 @@ class Issue
 
   class << self
     def prioritize(issue_ids)
-      priority_number = 1
-      issue_ids.each do |id|
+      issue_ids.each_with_index do |id, i|
         issue = Issue.find(id)
-        issue.update_attributes(:priority_number => priority_number)
-        priority_number = priority_number + 1
+        issue.update_attributes(:priority_number => i + 1)
       end
     end
   end
