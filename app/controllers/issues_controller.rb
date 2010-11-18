@@ -1,7 +1,7 @@
 class IssuesController < ApplicationController
   
   def index
-    @issues = Issue.all
+    @issues = Issue.order_by(:priority_number.asc)
   end
 
   def new
