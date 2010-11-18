@@ -17,7 +17,7 @@ describe IssuesController do
       end
 
       it "assigns all issues to variable for the view" do
-        Issue.stub(:all).and_return([issue])
+        Issue.stub(:order_by).and_return([issue])
         get :index
         assigns[:issues].should == [issue]
       end
