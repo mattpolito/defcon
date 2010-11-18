@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe Issue do
+
+  it { should be_referenced_in(:user).as_inverse_of(:issues) }
+
   it { should have_field(:title).of_type(String) }
   it { should have_field(:description).of_type(String) }
   it { should have_field(:author).of_type(String) }
@@ -29,6 +32,13 @@ describe Issue do
     it 'updates status to unassigned by default' do
       subject.status.should == "unassigned"
     end
+
+    # Cannot find elegant solution to test priority number setting correctly in accending order.  
+    # it 'sets the priority number as the next highest in the list' do
+      # subject.priority_number.should == 1
+      # Issue.create(valid_attributes).priority_number.should == 1
+      # Issue.create(valid_attributes).priority_number.should == 2
+    # end
   end
 
   describe 'instantiating a new object with no attributes' do
