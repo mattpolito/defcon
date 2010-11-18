@@ -5,5 +5,5 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  references_many :issues
+  references_many :issues, :inverse_of => :user
 end
