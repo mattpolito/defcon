@@ -6,13 +6,12 @@ $(function(){
     update: function() {
       var el    = $(this);
       var issue_id = [];
-      var issues = $(this).parents("#sortable_issues");
-    
-      $.each(issues.children(), function(index, value){
-        console.log($(value).find(".issues_id").children("span").attr("class"));
-        issue_id.push($(value).find(".issues_id").children("span").attr("class").split("-")[1])
+      
+      $("#sortable_issues").children().each(function(index) {
+        // console.log($(this).children("span").attr("data-issue_id"))
+        issue_id.push($(this).children("span").attr("data-issue_id"))
       });
-
+      
       var data = {issue_ids : issue_id}
 
       $.ajax({

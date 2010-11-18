@@ -14,12 +14,22 @@ class Issue
   validates :status, :presence => true
   validates :priority_number, :presence => true
   
-  set_callback(:save, :before) do |document|
+  set_callback(:create, :before) do |document|
     document.set_priority_number
   end
 
-  scope :by_priority, order_by("priorty_number.desc")
+  # scope :by_priority, order_by(:priority_number.asc)
 
+  class << self
+    def prioritize(issue_ids)
+      priority_number = 1
+      issue_ids.each do |id|
+        issue = Issue.find(id)
+        issue.update_attributes(:priority_number => priority_number)
+        priority_number = priority_number + 1
+      end
+    end
+  end
 
   def assign_to(user)
     self.update_attributes(:user => user, :status => "assigned")
@@ -27,7 +37,11 @@ class Issue
 
   protected
     def set_priority_number
-      issues = Issue.by_priority
-      issues.blank? ? self.priority_number = 1 : self.priority_number = (issues.last.priority_number + 1)
+      issues = Issue.order_by(:priority_number.asc)
+      unless issues.blank?  
+        self.priority_number = (issues.reverse.first.priority_number + 1)
+      else
+        self.priority_number = 1       
+      end
     end
 end

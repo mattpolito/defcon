@@ -19,6 +19,7 @@ class IssuesController < ApplicationController
   end
 
   def prioritize
-    raise params.inspect
+    Issue.prioritize(params["issue_ids"])
+    redirect_to "index"
   end
 end

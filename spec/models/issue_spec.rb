@@ -70,4 +70,21 @@ describe Issue do
       subject.user.should == @user
     end
   end
+
+  describe '#prioritize' do
+    @issue_ids = []
+    3.times do
+      @issue_ids << Issue.create(:title => 'title', :description => 'description').id
+    end
+    
+    it 're-prioritizes collection of issues based on the order given' do
+      @issue = Issue.find(@issue_ids.first)
+      @original_issue_priority_number = @issue.priority_number
+
+      @reversed_ids = @issues_ids.reverse
+      Issue.prioritize(@reversed_ids)
+      @issue.priority_number.should be_less_than @original_issue_priority_number
+      
+    end
+  end
 end
