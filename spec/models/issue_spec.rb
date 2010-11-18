@@ -38,11 +38,26 @@ describe Issue do
     it { should have(1).error_on(:description) }
 
     it "has a default status of 'unassigned'" do
-      subject.status.should == 'unassigned' 
+      subject.status.should == "unassigned" 
     end
 
     it "has a default priority of '0'" do
       subject.priority_number.should == 0
+    end
+  end
+
+  describe '#assign_to(user)' do
+    subject { Issue.new(valid_attributes) }
+
+    it 'should change status to assigned' do
+      subject.assign_to(Fabricate(:user))
+      subject.status.should == "assigned"
+    end
+
+    it 'should reference the user is has been assigned to' do
+      @user = Fabricate(:user)
+      subject.assign_to(@user)
+      subject.user.should == @user
     end
   end
 end
