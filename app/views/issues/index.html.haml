@@ -1,19 +1,23 @@
 %h2 Issues
 - unless @issues.blank?
-  #issue_index
-    %ul
-      %li 
-        %span Title
-        %span Description
-        %span Author
+  %table#issue_index
+    %thead
+      %tr 
+        %th Title
+        %th Description
+        %th Author
+        %th Assigned To
 
-      %ul#sortable_issues
+      %tbody#sortable_issues
         -@issues.each do |issue|
-          %li.issues
-            %p= link_to "#{issue.title}", issue_path(issue) 
-            %p= issue.description
-            %p= issue.author
-            %span(data-issue_id="#{issue.id}")            
+          %tr.issues
+            %td= link_to "#{issue.title}", issue_path(issue) 
+            %td= issue.description
+            %td= issue.author
+            %td.assigned_user
+              =select("issue", "user", User.all.collect{|user| [user.email, user.id]}, {:include_blank => true})
+            %td.issue_id
+              %span(data-issue_id="#{issue.id}")
 -else
   %h3 No Issues
 

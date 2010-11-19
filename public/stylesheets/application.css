@@ -95,28 +95,22 @@ body {
 }
 
 table {
-  width:100%;
-  margin: 10px, 0px, 10px;
-  border: solid #E3E3E1;
+  width:99%;
+  font-size:14px;
+  margin:10px 10px;
 }
 
-th {
-  background: #D5D6C6;
-  border-bottom: 1px solid #ABAB9E;
-  color: black;
-  padding: 5px 4px 3px;
-  text-align: left;
-  vertical-align: bottom;
+thead tr th {
+  background:#717171;
+  color:#fff;
+  border-bottom:2px solid #515151;
+  font-size:15px;
+  font-weight:bold;
+
 }
 
-td {
-  color: black;
-  line-height: 130%;
-  padding: 3px 4px;
-  text-align: left;
+tbody tr td {
+  text-align:left; 
+  padding:10px 0;
 }
-
-#sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-
 

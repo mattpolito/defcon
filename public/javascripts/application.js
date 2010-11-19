@@ -1,5 +1,14 @@
+// Return a helper with preserved width of cells
+var fixHelper = function(e, ui) {
+	ui.children().each(function() {
+		$(this).width($(this).width());
+	});
+	return ui;
+};
+
 $(function(){
   $("#sortable_issues").sortable({
+    helper: fixHelper,
     items:'.issues', 
     containment:'parent', 
     axis:'y', 
@@ -8,8 +17,8 @@ $(function(){
       var issue_id = [];
       
       $("#sortable_issues").children().each(function(index) {
-        // console.log($(this).children("span").attr("data-issue_id"))
-        issue_id.push($(this).children("span").attr("data-issue_id"))
+        // console.log($(this).children(".issue_id").children("span").attr("data-issue_id"))
+        issue_id.push($(this).children(".issue_id").children("span").attr("data-issue_id"))
       });
       
       var data = {issue_ids : issue_id}
