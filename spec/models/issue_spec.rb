@@ -58,16 +58,20 @@ describe Issue do
 
   describe '#assign_to(user)' do
     subject { Issue.new(valid_attributes) }
+    let(:user) { User.new }
+
+    before do
+      User.stub(:find).and_return(user)
+    end
 
     it 'should change status to assigned' do
-      subject.assign_to(Fabricate(:user).id)
+      subject.assign_to(user.id)
       subject.status.should == "assigned"
     end
 
     it 'should reference the user is has been assigned to' do
-      @user = Fabricate(:user)
-      subject.assign_to(@user.id)
-      subject.user.should == @user
+      subject.assign_to(user.id)
+      subject.user.should == user
     end
   end
 
