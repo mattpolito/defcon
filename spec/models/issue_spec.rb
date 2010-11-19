@@ -60,13 +60,13 @@ describe Issue do
     subject { Issue.new(valid_attributes) }
 
     it 'should change status to assigned' do
-      subject.assign_to(Fabricate(:user))
+      subject.assign_to(Fabricate(:user).id)
       subject.status.should == "assigned"
     end
 
     it 'should reference the user is has been assigned to' do
       @user = Fabricate(:user)
-      subject.assign_to(@user)
+      subject.assign_to(@user.id)
       subject.user.should == @user
     end
   end

@@ -25,7 +25,7 @@ class IssuesController < ApplicationController
 
   def assignment
     issue = Issue.find(params["issue_id"])
-    issue.assign_to(User.find(params["assigned_user"]))
+    issue.assign_to(params["assigned_user"])
     redirect_to "index"
   end
 end

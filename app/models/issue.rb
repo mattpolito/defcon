@@ -29,8 +29,8 @@ class Issue
     end
   end
 
-  def assign_to(user)
-    self.update_attributes(:user => user, :status => "assigned")
+  def assign_to(user_id)
+    self.update_attributes(:user => User.find(user_id), :status => "assigned")
   end
 
   protected
