@@ -22,4 +22,10 @@ class IssuesController < ApplicationController
     Issue.prioritize(params["issue_ids"])
     redirect_to "index"
   end
+
+  def assignment
+    issue = Issue.find(params["issue_id"])
+    issue.assign_to(params["assigned_user"])
+    redirect_to "index"
+  end
 end

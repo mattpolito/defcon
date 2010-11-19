@@ -3,6 +3,8 @@ Defcon::Application.routes.draw do
 
   resources :issues do
     post 'prioritize', :on => :collection
+    post 'assignment', :on => :collection
+
   end
 
   root :to => "issues#index"  

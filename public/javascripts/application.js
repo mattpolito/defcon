@@ -43,6 +43,37 @@ $(function(){
         });
     }
   });
+
+  
+  $('#issue_user').live('change', function() {
+      
+    var el    = $(this);
+    var issue_id = $(this).parents(".issues").children(".issue_id").children("span").attr("data-issue_id");
+    var assigned_user = $("#issue_user option:selected").val();
+      
+    var data = {issue_id : issue_id, assigned_user : assigned_user}
+
+      $.ajax({
+            url:  "/issues/assignment",
+            data: data,
+            dataType: 'script',
+            type: 'POST',
+            beforeSend: function (xhr) {
+                el.trigger('ajax:loading', xhr); 
+            },
+            success: function (data, status, xhr) {
+                el.trigger('ajax:success', [data, status, xhr]);
+            },
+            complete: function (xhr) {
+                el.trigger('ajax:complete', xhr);
+            },
+            error: function (xhr, status, error) {
+                el.trigger('ajax:failure', [xhr, status, error]);
+            }
+        });
+  });
+
+
 });
 
 
