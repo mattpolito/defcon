@@ -6,6 +6,7 @@ class IssuesController < ApplicationController
 
   def new
     @issue = Issue.new
+    @issue.author = current_user.email
   end
 
   def create

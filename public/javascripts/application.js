@@ -15,7 +15,7 @@ $(function(){
     update: function() {
       var el    = $(this);
       var issue_id = [];
-      
+
       $("#sortable_issues").children().each(function(index) {
         // console.log($(this).children(".issue_id").children("span").attr("data-issue_id"))
         issue_id.push($(this).children(".issue_id").children("span").attr("data-issue_id"))

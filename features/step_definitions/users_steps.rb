@@ -1,6 +1,6 @@
 Given /^I am a logged in user$/ do
 
-  @user = Fabricate(:sequenced_user)
+  @user = Fabricate(:user)
 
   steps %Q{
     Given I am not logged in
