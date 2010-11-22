@@ -47,6 +47,11 @@ describe IssuesController do
     end
 
     describe "POST create" do
+      before do
+        user.stub(:email)
+        issue.stub(:author=)
+      end
+
       it "assigns a newly instantiated issue to variable for the view" do
         Issue.stub(:new).and_return(issue)
         issue.stub(:save).and_return(true)

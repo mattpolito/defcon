@@ -6,11 +6,11 @@ class IssuesController < ApplicationController
 
   def new
     @issue = Issue.new
-    @issue.author = current_user.email
   end
 
   def create
     @issue = Issue.new(params[:issue])
+    @issue.author = current_user.email
     if @issue.save
       flash[:success] = "You have successfully added a new Issue!"
       redirect_to issues_path
