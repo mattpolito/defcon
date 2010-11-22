@@ -7,9 +7,7 @@
       %li
         =f.label :description 
         = f.text_area :description
-      %li
-        =f.label :author 
-        =f.text_field :author
+      %li Author #{@issue.author}
     %p.actions
       = submit_tag "Add Issue"
       = link_to "Cancel & Go Back", :back
