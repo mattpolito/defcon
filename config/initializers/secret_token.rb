@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Defcon::Application.config.secret_token = '65472308003c32dd481441bd3eac3fa184ac6c2e3da1b28ab5725e10749457f9f9f570281e20ade7baec722a1fe90e58898997c847153019741d4f9275efc375'
+Defcon::Application.config.secret_token = '52a0d0954fdcf3d46211211665526e308f11e1bbbbbbfbb8e2cb8f2a457c1a3817dda6a42f5e08f51a87616e4bbe03bd4e7b220cc907d2c81101559fb177afe2'
