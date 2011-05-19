@@ -52,5 +52,3 @@ module Defcon
     config.assets.enabled = true
   end
 end
-
-require 'settings'

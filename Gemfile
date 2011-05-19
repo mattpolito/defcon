@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.0.beta1'
 
 gem 'mysql2'
-
+gem 'aasm'
 gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
@@ -22,6 +22,7 @@ group :development, :test do
   gem "cucumber-rails"
   gem "capybara"
   gem "rspec-rails", ">= 2.0.1"
+  gem "shoulda"
 end
 
 group :test do

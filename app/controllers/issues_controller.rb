@@ -1,0 +1,32 @@
+class IssuesController < ApplicationController
+  
+  def index
+    @issues = Issue.order("priority_number asc")
+  end
+
+  def new
+    @issue = Issue.new
+  end
+
+  def create
+    @issue = Issue.new(params[:issue])
+    @issue.author = current_user.email
+    if @issue.save
+      flash[:success] = "You have successfully added a new Issue!"
+      redirect_to issues_path
+    else
+      render :action => 'new'
+    end    
+  end
+
+  def prioritize
+    Issue.prioritize(params["issue_ids"])
+    redirect_to "index"
+  end
+
+  def assignment
+    issue = Issue.find(params["issue_id"])
+    issue.assign_to(params["assigned_user"])
+    redirect_to "index"
+  end
+end
