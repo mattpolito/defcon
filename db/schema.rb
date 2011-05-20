@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110516122507) do
+ActiveRecord::Schema.define(:version => 20110519122229) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "issue_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assignments", ["issue_id"], :name => "index_assignments_on_issue_id"
+  add_index "assignments", ["user_id"], :name => "index_assignments_on_user_id"
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"

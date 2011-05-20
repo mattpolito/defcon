@@ -41,9 +41,6 @@ describe Issue do
   describe 'instantiating a new object with no attributes' do
     subject { Issue.new }
 
-    it { should have(1).error_on(:title) }
-    it { should have(1).error_on(:description) }
-
     it "has a default status of 'unassigned'" do
       subject.status.should == "unassigned" 
     end
@@ -54,23 +51,27 @@ describe Issue do
   end
 
   describe '#assign_to(user)' do
-    subject { Issue.new(valid_attributes) }
-    let(:user) { User.new }
+    subject { Issue.create(valid_attributes) }
+
+    it 'should change status to assigned' do
+      subject.assign_to(23)
+      subject.should be_assigned
+    end
+  end
+
+  describe "#currently_assigned_to" do
+    subject { Issue.create(valid_attributes) }
+    let(:user) { mock_model(User, :id => 42) }
 
     before do
+      subject.stub(:most_recent_assignment).
+        and_return(mock_model(Assignment, :user => user))
       User.stub(:find).and_return(user)
     end
 
-    it 'should change status to assigned' do
-      pending
+    it 'returns user with most recent assignment' do
       subject.assign_to(user.id)
-      subject.status.should == "assigned"
-    end
-
-    it 'should reference the user is has been assigned to' do
-      pending
-      subject.assign_to(user.id)
-      subject.user.should == user
+      subject.currently_assigned_to.should == user
     end
   end
 
