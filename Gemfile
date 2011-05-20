@@ -22,7 +22,7 @@ group :development, :test do
   gem "cucumber-rails"
   gem "capybara"
   gem "rspec-rails", ">= 2.0.1"
-  gem "shoulda"
+  gem "shoulda-matchers"
 end
 
 group :test do

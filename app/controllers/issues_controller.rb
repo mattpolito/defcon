@@ -10,7 +10,7 @@ class IssuesController < ApplicationController
 
   def create
     @issue = Issue.new(params[:issue])
-    @issue.author = current_user.email
+    @issue.author = current_user
     if @issue.save
       flash[:success] = "You have successfully added a new Issue!"
       redirect_to issues_path
