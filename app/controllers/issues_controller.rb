@@ -1,4 +1,5 @@
 class IssuesController < ApplicationController
+  before_filter :authenticate
   
   def index
     @issues = Issue.order("priority_number asc")
