@@ -13,6 +13,7 @@ gem "jquery-rails"
 gem "omniauth", "~> 0.2.0"
 gem "settingslogic"
 gem "simple_form"
+gem "decent_exposure"
 
 group :development do
   gem "haml-rails"
