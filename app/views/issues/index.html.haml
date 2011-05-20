@@ -5,17 +5,12 @@
       %tr
         %th Title
         %th Description
-        %th Author
-        %th Assigned To
 
       %tbody#sortable_issues
         - @issues.each do |issue|
           %tr.issues
             %td= link_to issue.title, issue
             %td= issue.description
-            %td= issue.author
-            %td.assigned_user
-              = select("issue", "user", User.all.collect{|user| [user.email, user.id]}, {:include_blank => true})
             %td.issue_id
               %span{ :"data-issue_id" => issue.id }
 - else
