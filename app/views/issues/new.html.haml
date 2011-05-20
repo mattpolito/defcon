@@ -1,13 +1,5 @@
 %fieldset
-  =form_for @issue do |f| 
-    %ul
-      %li
-        =f.label :title 
-        =f.text_field :title
-      %li
-        =f.label :description 
-        = f.text_area :description
-      %li Author #{@issue.author}
-    %p.actions
-      = submit_tag "Add Issue"
-      = link_to "Cancel & Go Back", :back
+  = simple_form_for @issue do |f|
+    = f.input :title
+    = f.input :description
+    = f.button :submit
