@@ -12,6 +12,7 @@ gem "hoptoad_notifier"
 gem "jquery-rails"
 gem "omniauth", "~> 0.2.0"
 gem "settingslogic"
+gem "simple_form"
 
 group :development do
   gem "haml-rails"

@@ -211,6 +211,7 @@ GEM
       rubyzip
     settingslogic (2.0.6)
     shoulda-matchers (1.0.0.beta2)
+    simple_form (1.4.0)
     sprockets (2.0.0.beta.2)
       hike (~> 1.0)
       rack (~> 1.0)
@@ -249,5 +250,6 @@ DEPENDENCIES
   sass
   settingslogic
   shoulda-matchers
+  simple_form
   turn
   uglifier

@@ -7,6 +7,8 @@ describe Issue do
   it { should have_db_column(:status).of_type(:string).
     with_options(:default => 'unassigned') }
   it { should have_db_column(:priority_number).of_type(:integer) }
+
+  it { should have_many(:assignments) }
   it { should belong_to(:author) }
   
   it { should validate_presence_of(:title) }
