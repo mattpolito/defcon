@@ -1,13 +1,13 @@
-source 'http://rubygems.org'
+source :rubygems
 
-gem 'rails', '3.1.0.beta1'
+gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.6'
 gem 'aasm'
 gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
-gem "haml", ">= 3.0.0"
+gem "haml", :git => 'git://github.com/nex3/haml.git'
 gem "hoptoad_notifier"
 gem "jquery-rails"
 gem "omniauth", "~> 0.2.0"
@@ -21,10 +21,12 @@ group :development do
 end
 
 group :development, :test do
-  gem "cucumber-rails"
   gem "capybara"
-  gem "rspec-rails", ">= 2.0.1"
-  gem "shoulda-matchers"
+  gem "cucumber"
+  gem "rspec-rails"
+  gem "shoulda-matchers", :git => 'git://github.com/thoughtbot/shoulda-matchers.git'
+  gem "awesome_print", :require => 'ap'
+  gem "factory_girl_rails", "1.1.rc1"
 end
 
 group :test do
