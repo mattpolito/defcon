@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :authenticate, :except => :destroy
+
   def create
     auth = request.env["omniauth.auth"]
     user = Authentication.find_by_provider_and_uid(auth["provider"], auth["uid"]).try(:user) || User.create_with_omniauth(auth)
