@@ -4,8 +4,10 @@ Defcon::Application.routes.draw do
   match '/signout' => 'sessions#destroy', :as => :signout
 
   resources :issues do
-    post 'prioritize', :on => :collection
-    post 'assignment', :on => :collection
+    collection do
+      post 'prioritize'
+      post 'assignment'
+    end
   end
 
   root :to => "issues#index"
