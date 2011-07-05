@@ -36,4 +36,8 @@ Defcon::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # Short circuit omniauth for testing
+  # OmniAuth.config.test_mode = true
+  # OmniAuth.config.mock_auth[:github] = { 'uid' => '12345' }
 end
