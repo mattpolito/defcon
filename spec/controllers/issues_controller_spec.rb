@@ -6,8 +6,7 @@ describe IssuesController do
 
   describe "when authenticated" do
     before do
-      User.stub(:find).and_return(user)
-      sign_in user
+      controller.stub(:current_user).and_return(user)
     end
 
     describe "GET index" do
@@ -17,9 +16,9 @@ describe IssuesController do
       end
 
       it "assigns all issues to variable for the view" do
-        Issue.stub(:order_by).and_return([issue])
+        Issue.should_receive(:order).and_return([issue])
         get :index
-        assigns[:issues].should == [issue]
+        controller.issues.should == [issue]
       end
 
       it "renders index template" do
@@ -37,7 +36,7 @@ describe IssuesController do
       it "assigns a new issue for the view" do
         Issue.stub(:new).and_return(issue)
         get :new
-        assigns[:issue].should == issue
+        controller.issue.should be(issue)
       end
 
       # it "renders the new template" do
@@ -56,7 +55,7 @@ describe IssuesController do
         Issue.stub(:new).and_return(issue)
         issue.stub(:save).and_return(true)
         post :create
-        assigns(:issue).should be(issue)
+        controller.issue.should be(issue)
       end
 
       describe "with valid params" do
@@ -90,8 +89,8 @@ describe IssuesController do
           post_with_invalid_params
         end
 
-        it "assigns a newly instantiated but unsaved issue to variable for the view" do
-          assigns(:issue).should == issue
+        it "assigns a new unsaved issue to variable for the view" do
+          controller.issue.should be(issue)
         end
 
         it "re-renders the 'new' template" do
@@ -103,7 +102,7 @@ describe IssuesController do
 
   describe "unauthenticated users get redirected when" do
     before do
-      sign_out user
+      controller.stub(:current_user).and_return(nil)
     end
     it "GET index" do
       get :index

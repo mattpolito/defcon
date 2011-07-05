@@ -1,20 +1,9 @@
-%h2 Issues
-- unless @issues.blank?
-  %table#issue_index
-    %thead
-      %tr
-        %th Title
-        %th Description
-
-      %tbody#sortable_issues
-        - @issues.each do |issue|
-          %tr.issues
-            %td= link_to issue.title, issue
-            %td= issue.description
-            %td.issue_id
-              %span{ :"data-issue_id" => issue.id }
-- else
-  %h3 No Issues
+%h1 Issues
+%ol#issues
+  - issues.each do |issue|
+    %li{ :id => dom_id(issue) }
+      = link_to issue.title, issue
+      = issue.description
 
 #add_issues
   = link_to "Add Issue", new_issue_path

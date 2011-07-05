@@ -1,33 +1,27 @@
 class IssuesController < ApplicationController
-  before_filter :authenticate
-  
-  def index
-    @issues = Issue.order("priority_number asc")
-  end
+  respond_to :html, :json
 
-  def new
-    @issue = Issue.new
-  end
+  expose(:issues) { Issue.order("priority_number ASC") }
+  expose(:issue)
 
   def create
-    @issue = Issue.new(params[:issue])
-    @issue.author = current_user
-    if @issue.save
+    issue.author = current_user
+    if issue.save
       flash[:success] = "You have successfully added a new Issue!"
       redirect_to issues_path
     else
       render :action => 'new'
-    end    
+    end
   end
 
   def prioritize
+    raise "HERE"
     Issue.prioritize(params["issue_ids"])
-    redirect_to "index"
+    redirect_to :index
   end
 
   def assignment
-    issue = Issue.find(params["issue_id"])
     issue.assign_to(params["assigned_user"])
-    redirect_to "index"
+    redirect_to :index
   end
 end
