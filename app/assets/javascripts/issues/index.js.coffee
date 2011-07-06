@@ -1,16 +1,18 @@
 jQuery ->
   $('#issues').sortable {
-    items: 'li',
+    axis: 'y',
     containment: 'parent',
-    update: (event, ui) ->
+    items: 'li',
+    opacity: 0.4,
+    update: ->
       issues = $('#issues li')
       issue_ids = $.map issues, (issue) ->
         $(issue).attr('id').replace('issue_','')
 
       $.ajax {
+        type: 'post',
         url: '/issues/prioritize',
-        data: issue_ids,
+        data: {issue_ids: issue_ids},
         dataType: 'script',
-        type: 'POST',
       }
   }

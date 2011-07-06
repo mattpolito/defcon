@@ -1,4 +1,5 @@
 class IssuesController < ApplicationController
+  skip_before_filter :authenticate, :only => :prioritize
   respond_to :html, :json
 
   expose(:issues) { Issue.order("priority_number ASC") }
@@ -15,9 +16,8 @@ class IssuesController < ApplicationController
   end
 
   def prioritize
-    raise "HERE"
     Issue.prioritize(params["issue_ids"])
-    redirect_to :index
+    render :json => "success"
   end
 
   def assignment
