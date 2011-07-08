@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
+  include UrlHelper
+
   protect_from_forgery
 
-  before_filter :authenticate
+  # before_filter :authenticate
   helper_method :current_user
 
   private
