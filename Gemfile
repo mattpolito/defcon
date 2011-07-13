@@ -10,7 +10,7 @@ gem 'uglifier'
 gem "haml", :git => 'git://github.com/nex3/haml.git'
 gem "hoptoad_notifier"
 gem "jquery-rails"
-gem "omniauth", "~> 0.2.0"
+gem "devise"
 gem "settingslogic"
 gem "simple_form"
 gem "decent_exposure"
