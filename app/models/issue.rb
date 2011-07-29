@@ -15,6 +15,7 @@ class Issue < ActiveRecord::Base
   # Associations
   has_many :assignments
   belongs_to :author, :class_name => "User", :foreign_key => :author_id
+  belongs_to :account
 
   # Validations
   validates :title, :presence => true
