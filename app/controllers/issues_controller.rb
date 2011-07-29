@@ -1,5 +1,4 @@
-class IssuesController < ApplicationController
-  skip_before_filter :authenticate, :only => :prioritize
+class IssuesController < ProtectedBaseController
   respond_to :html, :json
 
   expose(:issues) { Issue.order("priority_number ASC") }

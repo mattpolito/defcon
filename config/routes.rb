@@ -1,8 +1,9 @@
 Defcon::Application.routes.draw do
   constraints(Subdomain) do
-    match '/auth/:provider/callback' => 'sessions#create'
-    match '/signin' => 'sessions#new', :as => :signin
-    match '/signout' => 'sessions#destroy', :as => :signout
+    devise_for :users do
+      get "sign_in", :to => "devise/sessions#new"
+      get "sign_out", :to => "devise/sessions#destroy"
+    end
 
     resources :issues do
       collection do
