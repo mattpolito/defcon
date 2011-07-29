@@ -7,8 +7,8 @@
     = csrf_meta_tags
   %body
     #container
-      - if current_user
-        = link_to "Sign Out", signout_path
+      - if user_signed_in?
+        = link_to "Sign Out", sign_out_path
 
       = render 'shared/flashes'
       = yield
