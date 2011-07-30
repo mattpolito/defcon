@@ -78,10 +78,7 @@ GEM
     erubis (2.7.0)
     execjs (1.2.0)
       multi_json (~> 1.0)
-    factory_girl (2.0.1)
-    factory_girl_rails (1.1.rc1)
-      factory_girl (~> 2.0.0.rc)
-      railties (>= 3.0.0)
+    fabrication (1.0.1)
     ffi (1.0.9)
     gherkin (2.4.5)
       json (>= 1.4.6)
@@ -203,7 +200,7 @@ DEPENDENCIES
   cucumber
   decent_exposure
   devise
-  factory_girl_rails (= 1.1.rc1)
+  fabrication
   haml!
   haml-rails
   hoptoad_notifier

@@ -26,7 +26,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "shoulda-matchers", :git => 'git://github.com/thoughtbot/shoulda-matchers.git'
   gem "awesome_print", :require => 'ap'
-  gem "factory_girl_rails", "1.1.rc1"
+  gem "fabrication"
 end
 
 group :test do
