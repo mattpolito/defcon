@@ -1,1 +1,1 @@
-rvm use ruby-1.9.2-head@defcon --create
+rvm use 1.9.3-preview1@defcon --create

@@ -1,32 +1,34 @@
 source :rubygems
 
-gem 'rails', '3.1.0.rc5'
+gem 'rails', '3.1.0.rc6'
 
-gem 'mysql2', '~> 0.3.6'
 gem 'aasm'
-gem 'sass'
 gem 'coffee-script'
-gem 'uglifier'
-gem "haml", :git => 'git://github.com/nex3/haml.git'
-gem "hoptoad_notifier"
-gem "jquery-rails"
-gem "devise"
-gem "settingslogic"
-gem "simple_form"
 gem "decent_exposure"
+gem "draper"
+gem "jquery-rails"
+gem "haml"
+gem "hoptoad_notifier"
+gem 'mysql2', '~> 0.3.6'
+gem 'sass'
+gem "simple_form"
+gem "settingslogic"
+gem "sorcery"
+gem 'uglifier'
 
 group :development do
   gem "haml-rails"
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  # gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 group :development, :test do
-  gem "capybara"
-  gem "cucumber"
-  gem "rspec-rails"
-  gem "shoulda-matchers", :git => 'git://github.com/thoughtbot/shoulda-matchers.git'
   gem "awesome_print", :require => 'ap'
+  gem "capybara"
+  gem "cucumber-rails"
   gem "fabrication"
+  gem "ffaker"
+  gem "rspec-rails"
+  gem "shoulda-matchers"
 end
 
 group :test do
