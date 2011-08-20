@@ -2,10 +2,10 @@ jQuery ->
   $('#issues').sortable {
     axis: 'y',
     containment: 'parent',
-    items: 'li',
+    items: '.issue',
     opacity: 0.4,
     update: ->
-      issues = $('#issues li')
+      issues = $('#issues .issue')
       issue_ids = $.map issues, (issue) ->
         $(issue).attr('id').replace('issue_','')
 

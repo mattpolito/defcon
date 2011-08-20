@@ -1,9 +1,10 @@
-%h1 Issues
-%ol#issues
+%h2 Issues
+%dl#issues
   - ordered_issues.each do |issue|
-    %li{ :id => dom_id(issue) }
-      = link_to issue.title, issue
-      = issue.description
+    .issue{ id: dom_id(issue) }
+      %dt= link_to issue.title, issue
+      %dd= issue.description
 
-#add_issues
-  = link_to "Add Issue", new_issue_path
+- content_for(:sidebar) do
+  = link_to "Add Issue", new_issue_path, class: 'btn large'
+
