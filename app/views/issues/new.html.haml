@@ -1,5 +1,11 @@
-%fieldset
-  = simple_form_for issue do |f|
-    = f.input :title
-    = f.input :description
-    = f.button :submit
+= form_for issue, html: { class: 'stacked-form' } do |f|
+  %fieldset
+    %legend Create an issue
+    %dl
+      %dt= f.label :title
+      %dd= f.text_field :title
+    %dl
+      %dt= f.label :description
+      %dd= f.text_area :description
+  %fieldset.actions
+    = f.submit
