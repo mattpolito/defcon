@@ -1,6 +1,6 @@
 %h1 Issues
 %ol#issues
-  - issues.each do |issue|
+  - ordered_issues.each do |issue|
     %li{ :id => dom_id(issue) }
       = link_to issue.title, issue
       = issue.description

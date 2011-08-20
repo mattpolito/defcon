@@ -1,8 +1,9 @@
 class IssuesController < ProtectedBaseController
   respond_to :html, :json
 
-  expose(:issues) { Issue.order("priority_number ASC") }
+  expose(:issues) { Issue.all }
   expose(:issue)
+  expose(:ordered_issues) { issues.order("priority_number ASC") }
 
   def create
     issue.author = current_user
