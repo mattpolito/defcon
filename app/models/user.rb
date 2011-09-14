@@ -1,30 +1,11 @@
 class User < ActiveRecord::Base
-  # Associations
-  has_many :authentications
-  has_many :account_memberships
-  has_many :accounts, :through => :account_memberships
+  attr_accessible :email, :password, :password_confirmation
+
+  authenticates_with_sorcery!
+
+  # Validations
+  validates :password, :confirmation => true
 
   # Logic
-  def self.create_with_omniauth(auth)
-    transaction do
-      user = create!
-      user.authentications.create! do |authentication|
-        authentication.provider = auth["provider"]
-        authentication.uid      = auth["uid"]
-      end
-    end
-  end
 
-  def self.find_for_authentication(conditions={})
-    conditions[:accounts] = { :subdomain => conditions.delete(:subdomain) }
-    where(conditions).joins(:accounts).readonly(false).first
-  end
-
-  def account_subdomains
-    accounts.map(&:subdomain)
-  end
-
-  def has_account_access_for?(subdomain)
-    account_subdomains.include?(account.subdomain)
-  end
 end
