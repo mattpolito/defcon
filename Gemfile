@@ -32,6 +32,7 @@ group :development, :test do
   gem "ffaker"
   gem "rspec-rails"
   gem "shoulda-matchers"
+  gem "launchy"
 end
 
 group :test do
