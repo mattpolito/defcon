@@ -9,6 +9,9 @@
     %header
       %h1= link_to "Defcon", root_url
     %section.content
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+
       = yield
     %aside.sidebar
       = yield(:sidebar)
