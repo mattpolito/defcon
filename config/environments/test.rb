@@ -37,7 +37,6 @@ Defcon::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
-  # Short circuit omniauth for testing
-  # OmniAuth.config.test_mode = true
-  # OmniAuth.config.mock_auth[:github] = { 'uid' => '12345' }
+  # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
+  config.assets.allow_debugging = true
 end
