@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110907124616) do
+ActiveRecord::Schema.define(:version => 20110920124854) do
 
   create_table "account_memberships", :force => true do |t|
     t.integer  "account_id"
@@ -61,8 +61,7 @@ ActiveRecord::Schema.define(:version => 20110907124616) do
   add_index "issues", ["author_id"], :name => "index_issues_on_author_id"
 
   create_table "users", :force => true do |t|
-    t.string   "username",                     :null => false
-    t.string   "email"
+    t.string   "email",                        :null => false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
