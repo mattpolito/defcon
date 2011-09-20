@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   private
   
   def not_authenticated
-    redirect_to root_path, :alert => "Please login."    
+    flash[:alert] = "Not authorized to view this page, please login."
+    redirect_to login_path
   end
 end
