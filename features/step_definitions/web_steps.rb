@@ -20,6 +20,10 @@ Then /^I see "([^"]*)"$/ do |content|
   page.should have_content(content)
 end
 
+Then /^I do not see "([^"]*)"$/ do |content|
+  page.should_not have_content(content)
+end
+
 Then /^show me the page$/ do
   save_and_open_page
 end

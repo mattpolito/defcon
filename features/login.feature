@@ -6,7 +6,6 @@ Feature: Site Login
 
   Background:
     Given the following user:
-      | username | mattpolito       |
       | password | password         |
       | email    | matt@example.net |
     And I go to the login page
@@ -26,3 +25,8 @@ Feature: Site Login
     Then I should be on the login page
     And I see "Login Failure. Please try again."
 
+  Scenario: Password protection
+    When I fill in the login form with:
+      | Email    | matt@example.net |
+      | Password | supersecret      |
+    Then password field does not show typed value
