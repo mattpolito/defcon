@@ -8,7 +8,7 @@ gem "draper"
 gem "jquery-rails"
 gem "haml"
 gem "hoptoad_notifier"
-gem 'mysql2', '~> 0.3.6'
+gem "sqlite3-ruby", :require => "sqlite3"
 gem "simple_form"
 gem "settingslogic"
 gem "sorcery", "~> 0.6.0"
