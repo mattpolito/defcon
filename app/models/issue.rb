@@ -18,9 +18,9 @@ class Issue < ActiveRecord::Base
   belongs_to :account
 
   # Validations
-  validates :title, :presence => true
-  validates :description, :presence => true
-  validates :status, :presence => true
+  validates :title,           :presence => true
+  validates :description,     :presence => true
+  validates :status,          :presence => true
   validates :priority_number, :presence => true
 
   class << self
@@ -34,8 +34,8 @@ class Issue < ActiveRecord::Base
 
   def assign_to(user_id)
     transaction do
-      self.assignments.create(:user_id => user_id)
-      self.assign!
+      assignments.create(:user_id => user_id)
+      assign!
     end
   end
 
