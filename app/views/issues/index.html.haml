@@ -1,8 +1,9 @@
-%h2 Issues
+%h2 All Issues
 %dl#issues
   - ordered_issues.each do |issue|
     .issue{ id: dom_id(issue) }
       %dt= link_to issue.title, issue
+      ="from: #{User.find_by_id(issue.author_id).email}"
       %dd= issue.description
 
 - content_for(:sidebar) do
