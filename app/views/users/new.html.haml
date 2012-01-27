@@ -1,0 +1,23 @@
+= form_for @user do |f|
+  %legend Sign Up
+  - if @user.errors.any?
+    .error_messages
+      %h2 Form is invalid
+      %ul
+        - for message in @user.errors.full_messages
+          %li= message
+  .clearfix
+    = f.label :email
+    .input
+      = f.text_field :email
+  .clearfix
+    = f.label :password
+    .input
+      = f.password_field :password
+  .clearfix
+    = f.label :password_confirmation
+    .input
+      = f.password_field :password_confirmation
+  .actions
+    = f.submit "Sign Up", :class => "btn primary"
+    = link_to "Cancel & Go Back", :back, :class => "btn"

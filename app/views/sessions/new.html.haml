@@ -1,11 +1,18 @@
-%h1 Login
-
 = form_tag sessions_path, :method => :post, :id => 'login' do
   %fieldset
-    = label_tag :email
-    = text_field_tag :email
-    = label_tag :password
-    = password_field_tag :password
-    = label_tag :remember_me, 'Keep me logged in'
-    = check_box_tag :remember_me
-  = submit_tag 'Login'
+    %legend Login
+    .clearfix
+      = label_tag :email
+      .input
+        = text_field_tag :email
+    .clearfix
+      = label_tag :password
+      .input
+        = password_field_tag :password
+    .clearfix
+      = label_tag :remember_me, 'Keep me logged in'
+      .input
+        = check_box_tag :remember_me
+    .actions
+      = submit_tag 'Login', :class => "btn primary"
+      = link_to "Cancel & Go Back", :back, :class => "btn"
