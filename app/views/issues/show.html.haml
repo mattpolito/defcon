@@ -1,4 +1,6 @@
-%ul
-  %li= issue.title
-  %li= issue.description
-  %li= issue.status
+- content_for :sidebar do
+  = link_to "Go Back", :back, class: "btn"
+%h1= issue.title
+%p
+  %span.label= issue.status
+%p= issue.description

@@ -1,10 +1,12 @@
-%h2 Issues
-%dl#issues
+.page-header
+  %h1 Issues
+%ul.unstyled#issues
   - ordered_issues.each do |issue|
-    .issue{ id: dom_id(issue) }
-      %dt= link_to issue.title, issue
-      %dd= issue.description
+    %li.issue{ id: dom_id(issue) }
+      %h2= link_to issue.title, issue
+      %p
+        = issue.description.truncate(200)
+        = link_to "View Issue", issue
 
 - content_for(:sidebar) do
-  = link_to "Add Issue", new_issue_path, class: 'btn large'
-
+  = link_to "Add Issue", new_issue_path, class: 'btn btn-large'
